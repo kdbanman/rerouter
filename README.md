@@ -1,7 +1,8 @@
 reroute
 =======
 
-Express middleware for mapping equivalent request paths and routes
+Express middleware for mapping equivalent request paths and routes.
+See the [npm](https://www.npmjs.org/package/rerouter) and [github](https://github.com/kdbanman/rerouter) pages.
 
 ### Usage
 
