@@ -1,6 +1,6 @@
 {
     "name": "rerouter",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Express middleware for mapping equivalent request.routes and request.paths",
     "main": "index.js",
     "author": "Kirby Banman",
