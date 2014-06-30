@@ -1,7 +1,8 @@
-var map = {};
-
 module.exports = function (inputMap, opts)
 {
+    // per-rerouter source -> target map
+    var map = {};
+
     // use options to conditionally log behaviour
     var devLog = function (logStr) {
         if (opts === 'dev' || opts.dev || opts.mode === 'dev')
