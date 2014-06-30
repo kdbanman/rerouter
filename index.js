@@ -25,10 +25,11 @@ module.exports = function (inputMap, opts)
         if (source[0] !== '/') source = '/' + source;
         if (target[0] !== '/') target = '/' + target;
 
-        // make sure all sources and targets end without slashes
-        if (source[source.length - 1] === '/')
+        // make sure all sources and targets end without slashes if they are
+        // not the empty index path, '/'
+        if (source !== '/' && source[source.length - 1] === '/')
             source = source.substring(0, source.length - 1);
-        if (target[source.length - 1] === '/')
+        if (target !== '/' && target[source.length - 1] === '/')
             target = target.substring(0, target.length - 1);
 
         // slam all things to lower case
