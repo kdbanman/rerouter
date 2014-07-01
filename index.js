@@ -1,3 +1,5 @@
+var url = require('url');
+
 module.exports = function (inputMap, opts)
 {
     // per-rerouter source -> target map
@@ -29,7 +31,7 @@ module.exports = function (inputMap, opts)
         // not the empty index path, '/'
         if (source !== '/' && source[source.length - 1] === '/')
             source = source.substring(0, source.length - 1);
-        if (target !== '/' && target[source.length - 1] === '/')
+        if (target !== '/' && target[target.length - 1] === '/')
             target = target.substring(0, target.length - 1);
 
         // slam all things to lower case
@@ -43,22 +45,20 @@ module.exports = function (inputMap, opts)
     });
 
     return function (req, res, next) {
-        if (map[req.route] !== undefined) {
-            devlog('rerouting request.route from ' +
-                   req.route +
-                   ' to ' +
-                   map[req.route])
+        // mutate node request url
+        var parsed = url.parse(req.url);
 
-            req.route = map[req.route];
-        }
-        if (map[req.path] !== undefined) {
-            devlog('rerouting request.path from ' +
-                   req.route +
+        if (map[parsed.pathname] !== undefined) {
+            devLog('rerouting request path from ' +
+                   parsed.pathname +
                    ' to ' +
-                   map[req.route])
+                   map[parsed.pathname])
 
-            req.path = map[req.path];
+            parsed.pathname = map[req.route];
+
+            req.url = url.format(parsed);
         }
+
         next();
     };
 };
