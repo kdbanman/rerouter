@@ -1,6 +1,6 @@
 {
     "name": "rerouter",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Express/Connect middleware for mapping equivalent request.routes and request.paths",
     "main": "index.js",
     "author": "Kirby Banman",
@@ -21,7 +21,6 @@
     },
     "homepage": "https://github.com/kdbanman/rerouter",
     "dependencies": {
-        "url": ""
     },
     "engines": { "node": "*" }
 }
