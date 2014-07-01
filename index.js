@@ -54,7 +54,7 @@ module.exports = function (inputMap, opts)
                    ' to ' +
                    map[parsed.pathname])
 
-            parsed.pathname = map[req.route];
+            parsed.pathname = map[parsed.pathname];
 
             req.url = url.format(parsed);
         }
